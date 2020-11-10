@@ -19,7 +19,43 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "main" */ "../views/Dashboard.vue"),
       },
+      {
+        path: "states",
+        name: "StateList",
+        component: () =>
+          import(
+            /* webpackChunkName: "geographical" */ "../views/geographical/StateList.vue"
+          ),
+      },
+      {
+        path: "state/details",
+        name: "StateDetails",
+        component: () =>
+          import(
+            /* webpackChunkName: "geographical" */ "../views/geographical/StateDetails.vue"
+          ),
+      },
+      {
+        path: "cities",
+        name: "CityList",
+        component: () =>
+          import(
+            /* webpackChunkName: "geographical" */ "../views/geographical/CityList.vue"
+          ),
+      },
+      {
+        path: "city/details",
+        name: "CityDetails",
+        component: () =>
+          import(
+            /* webpackChunkName: "geographical" */ "../views/geographical/CityDetails.vue"
+          ),
+      },
     ],
+  },
+  {
+    path: "*",
+    redirect: "dashboard",
   },
 ];
 

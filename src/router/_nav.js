@@ -19,13 +19,13 @@ export default {
         {
           prependIcon: "mdi-bank",
           text: "Estados",
-          routeName: "StateList",
+          routeName: "StateSearch",
           url: "/states",
         },
         {
           prependIcon: "mdi-city-variant",
           text: "Cidade",
-          routeName: "CityList",
+          routeName: "CitiesSearch",
           url: "/cities",
         },
       ],

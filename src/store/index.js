@@ -8,6 +8,10 @@ import Loader from "./modules/system/Loader";
 /* AUTH */
 import Auth from "./modules/auth/Auth";
 
+/* GEOGRAPHICAL */
+import GeoStates from "./modules/geographical/GeoStates";
+import Cities from "./modules/geographical/Cities";
+
 import VuexPersistence from "vuex-persist";
 const vuexLocal = new VuexPersistence({
   key: "LS_OPRTR_PRC",
@@ -25,6 +29,8 @@ export default new Vuex.Store({
     MenuToggle,
     Loader,
     Auth,
+    GeoStates,
+    Cities,
   },
   plugins: [vuexLocal.plugin],
   strict: process.env.NODE_ENV !== "production",

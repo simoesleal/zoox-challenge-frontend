@@ -21,10 +21,10 @@ const routes = [
       },
       {
         path: "states",
-        name: "StateList",
+        name: "StateSearch",
         component: () =>
           import(
-            /* webpackChunkName: "geographical" */ "../views/geographical/StateList.vue"
+            /* webpackChunkName: "geographical" */ "../views/geographical/StateSearch.vue"
           ),
       },
       {
@@ -37,10 +37,10 @@ const routes = [
       },
       {
         path: "cities",
-        name: "CityList",
+        name: "CitiesSearch",
         component: () =>
           import(
-            /* webpackChunkName: "geographical" */ "../views/geographical/CityList.vue"
+            /* webpackChunkName: "geographical" */ "../views/geographical/CitiesSearch.vue"
           ),
       },
       {

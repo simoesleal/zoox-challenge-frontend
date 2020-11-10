@@ -9,7 +9,7 @@ export default {
   components: {},
 
   data: () => ({
-    //
+    // eslint-disable-next-line
   }),
 };
 </script>

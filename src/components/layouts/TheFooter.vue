@@ -1,7 +1,7 @@
 <template>
   <v-footer app color="white" id="the-footer" inset>
     <span class="text-caption ma-1"
-      ><span>Zoox</span> &copy; {{ new Date().getFullYear() }}</span
+      ><span>Z</span> &copy; {{ new Date().getFullYear() }}</span
     >
   </v-footer>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isAuth">
+  <div>
     <v-app-bar id="header" app fixed clipped-left elevation="1" color="white">
       <v-app-bar-nav-icon @click.stop="setMenuDrawer" />
       <v-toolbar-title>
@@ -13,7 +13,7 @@
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
-      <span class="mr-6">{{ account.name }}</span>
+      <span class="mr-6"></span>
       <v-menu bottom left>
         <template v-slot:activator="{ on }">
           <v-avatar color="grey" v-on="on" class="mr-12">

@@ -23,15 +23,8 @@
           >
         </v-col>
         <v-col cols="auto ml-auto">
-          <BaseButton
-            :color="'white--text'"
-            :dark="true"
-            :depressed="true"
-            :tile="true"
-            :small="true"
-            @click="newState()"
-          >
-            <v-icon class="mr-2" small>mdi-cash-refund</v-icon>Novo
+          <BaseButton :color="'blue white--text'" @click="newState()">
+            <v-icon class="mr-2" small>mdi-plus</v-icon>Novo
           </BaseButton>
         </v-col>
       </v-row>

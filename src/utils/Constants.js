@@ -18,6 +18,8 @@ const SERVICE_UNAVAILABLE_OBJ = {
   message: SERVICE_UNAVAILABLE_DETAILS,
 };
 
+const INPUT_REQUIRED = (value) => !!value || "Campo obrigatório.";
+
 module.exports = {
   HTTP_OK,
   HTTP_CREATED,
@@ -28,4 +30,5 @@ module.exports = {
   HTTP_NOT_FOUND,
   ERROR_MESSAGE,
   SERVICE_UNAVAILABLE_OBJ,
+  INPUT_REQUIRED,
 };

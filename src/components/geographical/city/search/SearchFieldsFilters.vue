@@ -16,7 +16,14 @@
           ></BaseInput>
         </v-col>
         <v-col>
-          <BaseButton :dark="true">Buscar</BaseButton>
+          <BaseButton :dark="true" @click="getCities({ name })"
+            >Buscar</BaseButton
+          >
+        </v-col>
+        <v-col cols="auto ml-auto">
+          <BaseButton :color="'blue white--text'" @click="newCity()">
+            <v-icon class="mr-2" small>mdi-plus</v-icon>Novo
+          </BaseButton>
         </v-col>
       </v-row>
     </v-container>
@@ -24,13 +31,28 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "SearchFieldsFilters",
   data: () => ({
     name: null,
   }),
   computed: {},
-  methods: {},
+  methods: {
+    ...mapActions("Cities", ["getCities", "resetState"]),
+    ...mapActions("GeoStates", ["getStates"]),
+
+    async newCity() {
+      this.resetState();
+      if (await this.getStates()) {
+        this.$router.push({
+          name: "CityDetails",
+        });
+      } else {
+        alert("Um problema ocorreu, por favor, tente novamente!");
+      }
+    },
+  },
 };
 </script>
 

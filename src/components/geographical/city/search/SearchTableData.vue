@@ -38,7 +38,7 @@
                     :icon="true"
                     :elevation="2"
                     @click="getDetails(item)"
-                    ><v-icon>mdi-account-details-outline</v-icon></BaseButton
+                    ><v-icon>mdi-file-table-outline</v-icon></BaseButton
                   >
                 </template>
                 <span>Detalhes</span>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "SearchTableData",
   data: () => ({
@@ -62,8 +62,13 @@ export default {
     ...mapState("Cities", ["tableHeader", "citiesList"]),
   },
   methods: {
-    getDetails(item) {
-      console.log("getDetails", item);
+    ...mapActions("Cities", ["getCity"]),
+    async getDetails(item) {
+      if (await this.getCity(item.Id)) {
+        this.$router.push({
+          name: "CityDetails",
+        });
+      }
     },
   },
 };

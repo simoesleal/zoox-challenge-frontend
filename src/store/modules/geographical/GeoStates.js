@@ -9,6 +9,7 @@ const initialState = () => ({
     { text: "Região", value: "region" },
     { text: "Ações", value: "actions" },
   ],
+  regionList: ["NORTE", "NORDESTE", "CENTRO-OESTE", "SUDESTE", "SUL"],
   statesList: [],
   stateDetails: null,
   uriFilters: "",
@@ -59,10 +60,13 @@ const actions = {
    * @description create the URI for the specific filters.
    */
   async setUriFilters({ commit }, payload) {
-    const { name, abbreviation, region } = payload;
-    if (name) commit("SET_URI_FILTERS", `name=${name}`);
-    if (abbreviation) commit("SET_URI_FILTERS", `abbreviation=${abbreviation}`);
-    if (region) commit("SET_URI_FILTERS", `region=${region}`);
+    if (payload) {
+      const { name, abbreviation, region } = payload;
+      if (name) commit("SET_URI_FILTERS", `name=${name}`);
+      if (abbreviation)
+        commit("SET_URI_FILTERS", `abbreviation=${abbreviation}`);
+      if (region) commit("SET_URI_FILTERS", `region=${region}`);
+    }
   },
 
   setStateList({ commit }, payload) {
@@ -98,6 +102,12 @@ const actions = {
       }
     } catch (error) {
       dispatch("Loader/setStatus", false, { root: true });
+      const { response } = error;
+      if (response && response.data.error) {
+        alert(response.data.message);
+      } else {
+        alert("Serviço indiponível no momento.");
+      }
       return false;
     }
   },
@@ -120,6 +130,12 @@ const actions = {
       }
     } catch (error) {
       dispatch("Loader/setStatus", false, { root: true });
+      const { response } = error;
+      if (response && response.data.error) {
+        alert(response.data.message);
+      } else {
+        alert("Serviço indiponível no momento.");
+      }
       return false;
     }
   },
@@ -141,6 +157,12 @@ const actions = {
       }
     } catch (error) {
       dispatch("Loader/setStatus", false, { root: true });
+      const { response } = error;
+      if (response && response.data.error) {
+        alert(response.data.message);
+      } else {
+        alert("Serviço indiponível no momento.");
+      }
       return false;
     }
   },
@@ -165,6 +187,12 @@ const actions = {
       }
     } catch (error) {
       dispatch("Loader/setStatus", false, { root: true });
+      const { response } = error;
+      if (response && response.data.error) {
+        alert(response.data.message);
+      } else {
+        alert("Serviço indiponível no momento.");
+      }
       return false;
     }
   },
@@ -186,6 +214,12 @@ const actions = {
       }
     } catch (error) {
       dispatch("Loader/setStatus", false, { root: true });
+      const { response } = error;
+      if (response && response.data.error) {
+        alert(response.data.message);
+      } else {
+        alert("Serviço indiponível no momento.");
+      }
       return false;
     }
   },

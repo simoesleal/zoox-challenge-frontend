@@ -16,7 +16,23 @@
           ></BaseInput>
         </v-col>
         <v-col>
-          <BaseButton :dark="true">Buscar</BaseButton>
+          <BaseButton
+            :dark="true"
+            @click="getStates({ name, abbreviation, region })"
+            >Buscar</BaseButton
+          >
+        </v-col>
+        <v-col cols="auto ml-auto">
+          <BaseButton
+            :color="'white--text'"
+            :dark="true"
+            :depressed="true"
+            :tile="true"
+            :small="true"
+            @click="newState()"
+          >
+            <v-icon class="mr-2" small>mdi-cash-refund</v-icon>Novo
+          </BaseButton>
         </v-col>
       </v-row>
     </v-container>
@@ -24,13 +40,25 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "SearchFieldsFilters",
   data: () => ({
     name: null,
+    abbreviation: null,
+    region: null,
   }),
   computed: {},
-  methods: {},
+  methods: {
+    ...mapActions("GeoStates", ["getStates", "resetState"]),
+
+    newState() {
+      this.resetState();
+      this.$router.push({
+        name: "StateDetails",
+      });
+    },
+  },
 };
 </script>
 

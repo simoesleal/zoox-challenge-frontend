@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import SearchFieldsFilters from "../../components/geographical/state/search/SearchFieldsFilters";
 import SearchTableData from "../../components/geographical/state/search/SearchTableData";
 export default {
@@ -14,6 +15,14 @@ export default {
   components: {
     SearchFieldsFilters,
     SearchTableData,
+  },
+
+  methods: {
+    ...mapActions("GeoStates", ["resetState"]),
+  },
+
+  created() {
+    this.resetState();
   },
 };
 </script>
